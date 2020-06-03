@@ -3,6 +3,7 @@ body {
     padding: 0;
     box-sizing: border-box;
     background-color: rgb(32,33,36);
+    color: rgb(66, 133, 244);
 }
 
 .logo {
@@ -33,11 +34,15 @@ body {
     height: 60px;
     margin-top: 30px;
     border-radius: 30px;
+    font-size: 30px;
+    color: rgb(32,33,36);
+    filter: grayscale(0.2);
 }
 
 .menu-btn:first-child {
     border: 4px solid rgb(66, 133, 244);
     background-color: rgb(32,33,36);
+    color: rgb(66, 133, 244);
 }
 
 .menu-btn:hover {
@@ -46,7 +51,8 @@ body {
 
 footer {
     position: absolute;
-    background-color: rgb(40,40,40);
+    background-color: rgb(50,48,52);
     min-height: 20vh;
     bottom: 0;
+    color: rgb(32,33,36);
 }
