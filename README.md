@@ -1,2 +1,5 @@
 # tic-tac-toe
-A game Interface for a JavaScript Workshop I conducted
+A Game-Interface for a JavaScript Workshop that I conducted
+
+## How to play
+## Things to come
