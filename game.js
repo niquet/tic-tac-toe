@@ -12,6 +12,10 @@ function Game() {
     // 2 equals player of "x" figure
     this.current_player = 0;
 
+    this.setActivePlayer = () => {
+        
+    }
+
     this.setFigure = (e) => {
         let row = e.getAttribute('row');
         let col = e.getAttribute('column');
