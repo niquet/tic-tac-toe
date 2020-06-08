@@ -51,6 +51,7 @@ body {
 
 .menu-btn {
     background-color: rgb(66, 133, 244);
+    border: 4px solid rgb(66, 133, 244);
     width: 60px;
     height: 60px;
     margin-top: 30px;
@@ -61,13 +62,17 @@ body {
 }
 
 .menu-btn:first-child {
-    border: 4px solid rgb(66, 133, 244);
     background-color: rgb(32,33,36);
     color: rgb(66, 133, 244);
 }
 
 .menu-btn:hover {
     cursor: pointer;
+}
+
+button.menu-btn:active,
+button.menu-btn:focus {
+    outline: 0;
 }
 
 footer {

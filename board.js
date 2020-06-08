@@ -1,15 +1,11 @@
-let boardElement = document.getElementById("board");
 let figureCross = document.createElement("i").classList.add("fa", "fa-circle");
 
-let restart = () => {
-    let fields = boardElement.childNodes;
-    fields.forEach(child => {
-        if(child.hasChildNodes()) {
-            child.firstChild.remove();
-        }
-    });
-}
-
-document.addEventListener("click", function() {
-    
+document.getElementById("game-restart").addEventListener('click', function() {
+    game.resetBoard();
 });
+
+function getPosition(e) {
+    let row = e.getAttribute('row');
+    let col = e.getAttribute('column');
+    return [row, col];
+}

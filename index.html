@@ -24,33 +24,7 @@
             <section class="row">
                 <div class="col-12 d-flex align-items-center justify-content-center">
                     <div class="board" id="board">
-                        <div class="field" row="0" column="0">
-                            <i class="fa fa-circle-o" aria-hidden="true"></i>
-                        </div>
-                        <div class="field" row="0" column="1">
-                            
-                        </div>
-                        <div class="field" row="0" column="2">
-                            
-                        </div>
-                        <div class="field" row="1" column="0">
-
-                        </div>
-                        <div class="field" row="1" column="1">
-                            
-                        </div>
-                        <div class="field" row="1" column="2">
-                            
-                        </div>
-                        <div class="field" row="2" column="0">
-
-                        </div>
-                        <div class="field" row="2" column="1">
-                            <i class="fa fa-times" aria-hidden="true"></i>
-                        </div>
-                        <div class="field" row="2" column="2">
-                            
-                        </div>
+                        
                     </div>
                 </div>
             </section>
@@ -64,17 +38,18 @@
         </footer>
         <div class="menu-overlay">
             <nav>
-                <div class="menu-btn d-flex align-items-center justify-content-center" id="game-restart" onclick="restart()">
+                <button class="menu-btn d-flex align-items-center justify-content-center" id="game-restart">
                     <i class="fa fa-refresh" aria-hidden="true"></i>
-                </div>
-                <div class="menu-btn d-flex align-items-center justify-content-center" id="game-undo">
+                </button>
+                <button class="menu-btn d-flex align-items-center justify-content-center" id="game-undo">
                     <i class="fa fa-undo" aria-hidden="true"></i>
-                </div>
-                <div class="menu-btn d-flex align-items-center justify-content-center" id="game-heuristic">
+                </button>
+                <button class="menu-btn d-flex align-items-center justify-content-center" id="game-heuristic">
                     <i class="fa fa-question" aria-hidden="true"></i>
-                </div>
+                </button>
             </nav>
         </div>
+        <script src="game.js"></script>
         <script src="board.js"></script>
     </body>
 </html>
