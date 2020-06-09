@@ -6,7 +6,7 @@ A Game-Interface for a JavaScript Workshop that I conducted
 
 2. Now **each player can set their figure** on the board, each taking turns doing so.
 
-3. If their is a **winner**, the icon background in the switch changes its background-color to green.
+3. If there is a **winner**, the icon background in the switch changes its background-color to green.
 
 ## Example gameplay
 
