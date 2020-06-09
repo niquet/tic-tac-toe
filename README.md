@@ -27,3 +27,7 @@ Player "x" is won this round. You can see that the switches' background-color ch
 ![Player "X" chose to start](https://github.com/niquet/tic-tac-toe/blob/master/images/winner.png?raw=true)
 
 ## Things to come
+- Undo button: removes the last move a player made (Each player can undo a move for upto 3 seconds, after that the players turn is over)
+- Help finding the optimal move (Implementation of the Min-Max-Search to find the next optimal move for you)
+- Database (Keeping track of game history)
+- Leaderboard (Track names of the players in each round, possibility to conduct local tournaments)
