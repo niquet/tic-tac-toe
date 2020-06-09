@@ -12,6 +12,6 @@ A Game-Interface for a JavaScript Workshop that I conducted
 
 Here you can see the interface. Player "x" chose to start in this round of the game.
 
-![Player "X" chose to start](https://github.com/niquet/tic-tac-toe/tree/master/images/player_chosen.png?raw=true)
+![Player "X" chose to start](https://github.com/niquet/tic-tac-toe/blob/master/images/player_chosen.png?raw=true)
 
 ## Things to come
