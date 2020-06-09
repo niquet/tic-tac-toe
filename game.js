@@ -12,8 +12,19 @@ function Game() {
     // 2 equals player of "x" figure
     this.current_player = 0;
 
-    this.setActivePlayer = () => {
-        
+    // game started, boolean
+    this.hasGameStarted = false;
+
+    this.setStartingPlayer = (e) => {
+        if(!this.hasGameStarted) {
+            e.classList.add('active');
+            this.hasGameStarted = true;
+        }
+        if(e.id == 'times') {
+            this.current_player = 2;
+        } else {
+            this.current_player = 1;
+        }
     }
 
     this.setFigure = (e) => {
@@ -28,9 +39,13 @@ function Game() {
         if(this.current_player === 1) {
             class_string = 'fa fa-circle-o';
             next_player = 2;
+            document.getElementById("times").classList.add('active');
+            document.getElementById("circle").classList.remove('active');
         } else {
             class_string = 'fa fa-times';
             next_player = 1;
+            document.getElementById("circle").classList.add('active');
+            document.getElementById("times").classList.remove('active');
         }
         let figure = document.createElement('i');
         figure.classList = [class_string];
@@ -38,9 +53,20 @@ function Game() {
         e.appendChild(figure);
 
         this.board[row][col] = this.current_player;
+
+        if(this.isFinished(this.current_player)) {
+            if(this.current_player === 1) {
+                document.getElementById("circle").classList.add('winner');
+                document.getElementById("times").classList.remove('active');
+            } else {
+                document.getElementById("times").classList.add('winner');
+                document.getElementById("circle").classList.remove('active');
+            }
+            // window.setTimeout(this.resetBoard(), 5000);
+        }
+
         this.current_player = next_player;
 
-        end:
         return true;
 
     }
@@ -67,7 +93,36 @@ function Game() {
                 this.board[i][j] = 0;
             }
         }
+        
+        if(this.current_player === 1) {
+            document.getElementById("circle").classList.remove('active');
+            document.getElementById("times").classList.remove('winner');
+        } else {
+            document.getElementById("times").classList.remove('active');
+            document.getElementById("circle").classList.remove('winner');
+        }
+
+        this.hasGameStarted = false;
+        this.current_player = 0;
     }
+
+    this.isFinished = (c) => {
+        if(this.board[0][0] === c && this.board[0][1] === c && this.board[0][2] === c ||
+            this.board[0][0] === c && this.board[1][1] === c && this.board[2][2] === c ||
+            this.board[0][0] === c && this.board[1][0] === c && this.board[2][0] === c) {
+            return true;
+        } else if(this.board[0][1] === c && this.board[1][1] === c && this.board[2][1] === c ||
+                  this.board[0][2] === c && this.board[1][2] === c && this.board[2][2] === c ||
+                  this.board[0][2] === c && this.board[1][1] === c && this.board[2][0] === c) {
+                      return true;
+        } else if(this.board[1][0] === c && this.board[1][1] === c && this.board[1][2] === c ||
+                  this.board[2][0] === c && this.board[2][1] === c && this.board[2][2] === c) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
 
 let game = new Game();
@@ -107,3 +162,7 @@ Game.prototype.initBoard = () => {
 };
 
 game.initBoard();
+
+function start(e) {
+    game.setStartingPlayer(e);
+}

@@ -101,6 +101,10 @@ button.menu-btn:focus {
     filter: grayscale(0.2);
 }
 
+.player-btn:hover {
+    cursor: pointer;
+}
+
 .player-btn.active {
     background-color: rgb(32,33,36);
     color: rgb(66, 133, 244);
@@ -127,4 +131,10 @@ footer {
     /* Internet Explorer/Edge */ 
     user-select: none; 
     /* Non-prefixed version, currently not supported by any browser */ 
+}
+
+.winner {
+    background-color: rgb(60, 186, 84);
+    color: rgb(32,33,36);
+    filter: grayscale(0.2);
 }
