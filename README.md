@@ -22,7 +22,7 @@ Player "x" is one move away from winning this round.
 
 ![Player "X" chose to start](https://github.com/niquet/tic-tac-toe/blob/master/images/last_move.png?raw=true)
 
-Player "x" is won this round. You can see that the switches' background-color changed to green. To start the next round, press the restart button in the menu right to the board.
+Player "x" won this round. You can see that the switches' background-color changed to green. To start the next round, press the restart button in the menu right to the board.
 
 ![Player "X" chose to start](https://github.com/niquet/tic-tac-toe/blob/master/images/winner.png?raw=true)
 
