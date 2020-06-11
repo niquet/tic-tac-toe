@@ -108,6 +108,7 @@ function Game() {
         }
 
         this.hasGameStarted = false;
+        this.hasGameFinished = false;
         this.current_player = 0;
     }
 
