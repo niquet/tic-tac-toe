@@ -29,8 +29,14 @@ function Game() {
     }
 
     this.setFigure = (e) => {
+
         if (this.hasGameFinished)
             return false; //don't continue game, after it is finished
+
+        //when user clicks on board without selecting X or O first
+        if (!this.hasGameStarted) {
+            this.setStartingPlayer(document.getElementById("times")); //default starting player: X
+        }
 
         let row = e.getAttribute('row');
         let col = e.getAttribute('column');
