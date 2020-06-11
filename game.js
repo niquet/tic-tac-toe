@@ -3,7 +3,7 @@ function Game() {
     // initialize 2D-Array as the board instance used for evaluation
     // of the current game
     this.board = [];
-    for(let i = 0; i < 3; i++) {
+    for (let i = 0; i < 3; i++) {
         this.board[i] = [0, 0, 0];
     }
 
@@ -14,13 +14,14 @@ function Game() {
 
     // game started, boolean
     this.hasGameStarted = false;
+    this.hasGameFinished = false;
 
     this.setStartingPlayer = (e) => {
-        if(!this.hasGameStarted) {
+        if (!this.hasGameStarted) {
             e.classList.add('active');
             this.hasGameStarted = true;
         }
-        if(e.id == 'times') {
+        if (e.id == 'times') {
             this.current_player = 2;
         } else {
             this.current_player = 1;
@@ -28,15 +29,24 @@ function Game() {
     }
 
     this.setFigure = (e) => {
+
+        if (this.hasGameFinished)
+            return false; //don't continue game, after it is finished
+
+        //when user clicks on board without selecting X or O first
+        if (!this.hasGameStarted) {
+            this.setStartingPlayer(document.getElementById("times")); //default starting player: X
+        }
+
         let row = e.getAttribute('row');
         let col = e.getAttribute('column');
 
-        if( this.board[row][col] != 0 ) {
+        if (this.board[row][col] != 0) {
             return false;
         }
 
         let class_string, next_player;
-        if(this.current_player === 1) {
+        if (this.current_player === 1) {
             class_string = 'fa fa-circle-o';
             next_player = 2;
             document.getElementById("times").classList.add('active');
@@ -54,20 +64,17 @@ function Game() {
 
         this.board[row][col] = this.current_player;
 
-        if(this.isFinished(this.current_player)) {
-            if(this.current_player === 1) {
+        if (this.isFinished(this.current_player)) {
+            if (this.current_player === 1) {
                 document.getElementById("circle").classList.add('winner');
                 document.getElementById("times").classList.remove('active');
             } else {
                 document.getElementById("times").classList.add('winner');
                 document.getElementById("circle").classList.remove('active');
             }
-<<<<<<< Updated upstream
-            // window.setTimeout(this.resetBoard(), 5000);
-=======
             this.hasGameFinished = true; //ends the game
             window.setTimeout(this.resetBoard, 3000);
->>>>>>> Stashed changes
+
         }
 
         this.current_player = next_player;
@@ -88,18 +95,18 @@ function Game() {
         let boardElement = document.getElementById("board");
         let fields = boardElement.childNodes;
         fields.forEach(child => {
-            if(child.hasChildNodes()) {
+            if (child.hasChildNodes()) {
                 child.firstChild.remove();
             }
         });
-        
-        for(let i = 0; i < 3; i++) {
-            for(let j = 0; j < 3; j++) {
+
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
                 this.board[i][j] = 0;
             }
         }
-        
-        if(this.current_player === 1) {
+
+        if (this.current_player === 1) {
             document.getElementById("circle").classList.remove('active');
             document.getElementById("times").classList.remove('winner');
         } else {
@@ -108,20 +115,21 @@ function Game() {
         }
 
         this.hasGameStarted = false;
+        this.hasGameFinished = false;
         this.current_player = 0;
     }
 
     this.isFinished = (c) => {
-        if(this.board[0][0] === c && this.board[0][1] === c && this.board[0][2] === c ||
+        if (this.board[0][0] === c && this.board[0][1] === c && this.board[0][2] === c ||
             this.board[0][0] === c && this.board[1][1] === c && this.board[2][2] === c ||
             this.board[0][0] === c && this.board[1][0] === c && this.board[2][0] === c) {
             return true;
-        } else if(this.board[0][1] === c && this.board[1][1] === c && this.board[2][1] === c ||
-                  this.board[0][2] === c && this.board[1][2] === c && this.board[2][2] === c ||
-                  this.board[0][2] === c && this.board[1][1] === c && this.board[2][0] === c) {
-                      return true;
-        } else if(this.board[1][0] === c && this.board[1][1] === c && this.board[1][2] === c ||
-                  this.board[2][0] === c && this.board[2][1] === c && this.board[2][2] === c) {
+        } else if (this.board[0][1] === c && this.board[1][1] === c && this.board[2][1] === c ||
+            this.board[0][2] === c && this.board[1][2] === c && this.board[2][2] === c ||
+            this.board[0][2] === c && this.board[1][1] === c && this.board[2][0] === c) {
+            return true;
+        } else if (this.board[1][0] === c && this.board[1][1] === c && this.board[1][2] === c ||
+            this.board[2][0] === c && this.board[2][1] === c && this.board[2][2] === c) {
             return true;
         } else {
             return false;
@@ -139,11 +147,11 @@ function handleMove(e) {
 Game.prototype.initBoard = () => {
 
     let boardElement = document.getElementById('board');
-    for(let i = 0; i < 3; i++) {
-        for(let j = 0; j < 3; j++) {
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
 
             // converts row and column count into field count
-            let field_count = i + i*j;
+            let field_count = i + i * j;
             // create field html element, div
             let field = document.createElement('div');
             // set classlist of field div
