@@ -14,6 +14,7 @@ function Game() {
 
     // game started, boolean
     this.hasGameStarted = false;
+    this.hasGameFinished = false;
 
     this.setStartingPlayer = (e) => {
         if (!this.hasGameStarted) {
@@ -28,6 +29,9 @@ function Game() {
     }
 
     this.setFigure = (e) => {
+
+        if (this.hasGameFinished)
+            return false; //don't continue game, after it is finished
 
         //when user clicks on board without selecting X or O first
         if (!this.hasGameStarted) {
@@ -68,6 +72,7 @@ function Game() {
                 document.getElementById("times").classList.add('winner');
                 document.getElementById("circle").classList.remove('active');
             }
+            this.hasGameFinished = true; //ends the game
             // window.setTimeout(this.resetBoard(), 5000);
         }
 
@@ -109,6 +114,7 @@ function Game() {
         }
 
         this.hasGameStarted = false;
+        this.hasGameFinished = false;
         this.current_player = 0;
     }
 
