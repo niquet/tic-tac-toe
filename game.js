@@ -136,6 +136,20 @@ function Game() {
         }
     }
 
+    // ========================================================================================
+    // Hausaufgabe aus dem Workshop
+    // ======================================================================================== Start
+
+    // Rest ist in der undo() Funktion zu finden
+
+    this.undoLastMove = () => {
+        //TODO
+        console.log("Denkt an die Hilfestellungen in der Mail :)")
+        return true;
+    }
+
+    // ======================================================================================== Ende
+
 }
 
 let game = new Game();
@@ -171,7 +185,6 @@ Game.prototype.initBoard = () => {
             boardElement.appendChild(field);
         }
     }
-    console.log("TESTS");
 };
 
 game.initBoard();
@@ -179,3 +192,19 @@ game.initBoard();
 function start(e) {
     game.setStartingPlayer(e);
 }
+
+// ========================================================================================
+// Hausaufgabe aus dem Workshop
+// ======================================================================================== Start
+
+// Rest ist in der Game() Funktion zu finden
+// Hier ist die aufrufende Funktion gegeben, eingebunden in der index.html
+
+function undo() {
+
+    // Aufruf der von euch implementierten Funktion auf
+    // der Instanz game
+    game.undoLastMove();
+}
+
+// ======================================================================================== Ende
